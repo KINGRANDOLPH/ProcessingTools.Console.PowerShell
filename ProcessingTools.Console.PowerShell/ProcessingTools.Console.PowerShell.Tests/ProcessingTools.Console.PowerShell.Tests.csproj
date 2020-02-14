@@ -1,28 +1,41 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+
     <Version>0.0.1</Version>
+
     <Authors>Bozhin Karaivanov</Authors>
+
     <Company>ProcessingTools</Company>
-    <Description>Console tool to run PowerShell scripts</Description>
+
+    <Description>Tests for ProcessingTools.Console.PowerShell</Description>
+
     <Copyright>Copyright © 2020 ProcessingTools</Copyright>
+
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
+
     <PackageProjectUrl>https://github.com/ProcessingTools/ProcessingTools.Console.PowerShell</PackageProjectUrl>
+
     <RepositoryUrl>https://github.com/ProcessingTools/ProcessingTools.Console.PowerShell.git</RepositoryUrl>
+
     <RepositoryType>git</RepositoryType>
-    <PackageTags>console, powershell</PackageTags>
+
+    <PackageTags>powershell, tests</PackageTags>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <OutputPath>bin\release</OutputPath>
-    <DocumentationFile>bin\release\ProcessingTools.Console.PowerShell.xml</DocumentationFile>
+    <DocumentationFile>bin\release\ProcessingTools.Console.PowerShell.Tests.xml</DocumentationFile>
+    <NoWarn>1701;1702;CA1707</NoWarn>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <OutputPath>bin\debug</OutputPath>
-    <DocumentationFile>bin\debug\ProcessingTools.Console.PowerShell.xml</DocumentationFile>
+    <DocumentationFile>bin\debug\ProcessingTools.Console.PowerShell.Tests.xml</DocumentationFile>
+    <NoWarn>1701;1702;CA1707</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
@@ -38,16 +51,14 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.1" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.1" />
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.1" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="3.1.1" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Configuration" Version="3.1.1" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="3.1.1" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.1" />
-    <PackageReference Include="Microsoft.PowerShell.Commands.Diagnostics" Version="6.2.4" />
-    <PackageReference Include="Microsoft.PowerShell.SDK" Version="6.2.4" />
-    <PackageReference Include="Microsoft.WSMan.Management" Version="6.2.4" />
+    <PackageReference Include="MSTest.TestAdapter" Version="2.1.0" />
+    <PackageReference Include="MSTest.TestFramework" Version="2.1.0" />
+    <PackageReference Include="nunit" Version="3.12.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.16.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
     <PackageReference Include="SonarAnalyzer.CSharp" Version="8.3.0.14607">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -56,6 +67,10 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProcessingTools.Console.PowerShell\ProcessingTools.Console.PowerShell.csproj" />
   </ItemGroup>
 
 </Project>
